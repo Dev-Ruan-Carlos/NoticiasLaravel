@@ -1,0 +1,547 @@
+/* tooltip */
+
+/* 
+  You want a simple and fancy tooltip?
+  Just copy all [data-tooltip] blocks:
+*/
+
+[data-tooltip] {
+	position: relative;
+}
+
+
+/* Positioning and visibility settings of the tooltip */
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+	position: absolute;
+	visibility: hidden;
+	opacity: 0;
+	left: 50%;
+	bottom: calc(100% + 5px);
+	pointer-events: none;
+	transition: 0.2s;
+    /* will-change: transform; */
+	z-index: 151;
+}
+
+
+/* The actual tooltip with a dynamic width */
+
+[data-tooltip]:before {
+	content: attr(data-tooltip);
+	padding: 10px 18px;
+	min-width: 50px;
+	max-width: 300px;
+	width: -webkit-max-content;
+	width: max-content;
+	width: -moz-max-content;
+	border-radius: 5px;
+	font-style: normal;
+	background-color: rgba(59, 72, 80, 0.9);
+	background-image: linear-gradient(30deg, rgba(59, 72, 80, 0.44), rgba(59, 68, 75, 0.44), rgba(60, 82, 88, 0.44));
+	box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+	color: #fff;
+	text-align: center;
+	white-space: pre-wrap;
+	transform: translate(-50%, -5px) scale(0.5);
+	font-size: 14px;
+}
+
+
+/* Tooltip arrow */
+
+[data-tooltip]:after {
+	content: '';
+	border-style: solid;
+	border-width: 5px 5px 0px 5px;
+	border-color: rgba(55, 64, 70, 0.9) transparent transparent transparent;
+	transition-duration: 0s;
+	/* If the mouse leaves the element, 
+                              the transition effects for the 
+                              tooltip arrow are "turned off" */
+	transform-origin: top;
+	/* Orientation setting for the
+                              slide-down effect */
+	transform: translateX(-50%) scaleY(0);
+}
+
+
+/* Tooltip becomes visible at hover */
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+	visibility: visible;
+	opacity: 1;
+}
+
+
+/* Scales from 0.5 to 1 -> grow effect */
+
+[data-tooltip]:hover:before {
+	transition-delay: 0.3s;
+	transform: translate(-50%, -5px) scale(1);
+}
+
+
+/* Slide down effect only on mouseenter (NOT on mouseleave) */
+
+[data-tooltip]:hover:after {
+	transition-delay: 0.5s;
+	/* Starting after the grow effect */
+	transition-duration: 0.2s;
+	transform: translateX(-50%) scaleY(1);
+}
+
+
+/*
+  That's it.
+*/
+
+
+/*
+  If you want some adjustability
+  here are some orientation settings you can use:
+*/
+
+
+/* LEFT */
+
+
+/* Tooltip + arrow */
+
+[data-tooltip-location="left"]:before,
+[data-tooltip-location="left"]:after {
+	left: auto;
+	right: calc(100% + 5px);
+	bottom: 50%;
+}
+
+/* Tooltip */
+
+[data-tooltip-location="left"]:before {
+	transform: translate(-5px, 50%) scale(0.5);
+}
+
+[data-tooltip-location="left"]:hover:before {
+	transform: translate(-5px, 50%) scale(1);
+}
+
+
+/* Arrow */
+
+[data-tooltip-location="left"]:after {
+	border-width: 5px 0px 5px 5px;
+	border-color: transparent transparent transparent rgba(55, 64, 70, 0.9);
+	transform-origin: left;
+	transform: translateY(50%) scaleX(0);
+}
+
+[data-tooltip-location="left"]:hover:after {
+	transform: translateY(50%) scaleX(1);
+}
+
+
+/* RIGHT */
+
+[data-tooltip-location="right"]:before,
+[data-tooltip-location="right"]:after {
+	left: calc(100% + 5px);
+	bottom: 50%;
+}
+
+[data-tooltip-location="right"]:before {
+	transform: translate(5px, 50%) scale(0.5);
+}
+
+[data-tooltip-location="right"]:hover:before {
+	transform: translate(5px, 50%) scale(1);
+}
+
+[data-tooltip-location="right"]:after {
+	border-width: 5px 5px 5px 0px;
+	border-color: transparent rgba(55, 64, 70, 0.9) transparent transparent;
+	transform-origin: right;
+	transform: translateY(50%) scaleX(0);
+}
+
+[data-tooltip-location="right"]:hover:after {
+	transform: translateY(50%) scaleX(1);
+}
+
+
+/* BOTTOM */
+
+[data-tooltip-location="bottom"]:before,
+[data-tooltip-location="bottom"]:after {
+	top: calc(100% + 5px);
+	bottom: auto;
+}
+
+[data-tooltip-location="bottom"]:before {
+	transform: translate(-50%, 5px) scale(0.5);
+}
+
+[data-tooltip-location="bottom"]:hover:before {
+	transform: translate(-50%, 5px) scale(1);
+}
+
+[data-tooltip-location="bottom"]:after {
+	border-width: 0px 5px 5px 5px;
+	border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
+	transform-origin: bottom;
+}
+
+[data-tooltip][data-tooltip-status="1"]::before{background-color: #36e243;}
+[data-tooltip][data-tooltip-status="1"]::after{border-color: transparent transparent transparent #36e243;}
+[data-tooltip][data-tooltip-status="0"]::before{background-color: #ed591f;}
+[data-tooltip][data-tooltip-status="1"]::after{border-color: transparent transparent transparent #ed591f;}
+[data-tooltip-location="left"][data-tooltip-status="1"]::after{border-color: transparent transparent transparent #36e243;}
+[data-tooltip-location="left"][data-tooltip-status="0"]::after{border-color: transparent transparent transparent #ed591f;}
+[data-tooltip-location="right"][data-tooltip-status="1"]::after{border-color: transparent transparent transparent #36e243;}
+[data-tooltip-location="right"][data-tooltip-status="0"]::after{border-color: transparent transparent transparent #ed591f;}
+[data-tooltip-location="bottom"][data-tooltip-status="1"]::after{border-color: transparent transparent transparent #36e243;}
+[data-tooltip-location="bottom"][data-tooltip-status="0"]::after{border-color: transparent transparent transparent #ed591f;}
+
+/* style global */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration:none;
+    outline: 0;
+}
+
+.flex, .flex-c, .flex-cr, .flex-r, .flex-w, .flex-jb, .flex-jc, .flex-js, .flex-je, .flex-as, .flex-ac, .flex-ae, .flex-ja, .flex-ab{
+    display: flex;
+}
+.flex-c{flex-direction: column;}
+.flex-cr{flex-direction: column-reverse;}
+.flex-r{flex-direction: row;}
+.flex-w{flex-wrap: wrap;}
+.flex-jb{justify-content: space-between;}
+.flex-ja{justify-content: space-around;}
+.flex-jc{justify-content: center;}
+.flex-js{justify-content: flex-start;}
+.flex-je{justify-content: flex-end;}
+.flex-as{align-items: flex-start;}
+.flex-ac{align-items: center;}
+.flex-ae{align-items: flex-end;}
+.flex-ab{align-items: baseline;}
+
+.text-c{text-align: center;}
+.text-r{text-align: right;}
+.text-l{text-align: left;}
+.text-j{text-align: justify;}
+
+.m-0{margin: 0rem;}
+.m-0-important{margin: 0rem !important;}
+.m-025{margin: .25rem;}
+.m-05{margin: .5rem;}
+.m-1{margin: 1rem;}
+.m-2{margin: 2rem;}
+.m-3{margin: 3rem;}
+.m-4{margin: 4rem;}
+.m-5{margin: 5rem;}
+
+.mt-0{margin-top: 0rem;}
+.mt-025{margin-top: .25rem;}
+.mt-05{margin-top: .5rem;}
+.mt-1{margin-top: 1rem;}
+.mt-2{margin-top: 2rem;}
+.mt-3{margin-top: 3rem;}
+.mt-4{margin-top: 4rem;}
+.mt-5{margin-top: 5rem;}
+.mt-6{margin-top: 6rem;}
+.mt-7{margin-top: 7rem;}
+
+.mr-0{margin-right: 0rem;}
+.mr-05{margin-right: .5rem;}
+.mr-1{margin-right: 1rem;}
+.mr-2{margin-right: 2rem;}
+.mr-3{margin-right: 3rem;}
+.mr-4{margin-right: 4rem;}
+.mr-5{margin-right: 5rem;}
+
+.mb-0{margin-bottom: 0rem;}
+.mb-025{margin-bottom: .25rem;}
+.mb-05{margin-bottom: .5rem;}
+.mb-1{margin-bottom: 1rem;}
+.mb-2{margin-bottom: 2rem;}
+.mb-3{margin-bottom: 3rem;}
+.mb-4{margin-bottom: 4rem;}
+.mb-5{margin-bottom: 5rem;}
+.mb-6{margin-bottom: 6rem;}
+
+.ml-0{margin-left: 0rem;}
+.ml-05{margin-left: .5rem;}
+.ml-1{margin-left: 1rem;}
+.ml-2{margin-left: 2rem;}
+.ml-3{margin-left: 3rem;}
+.ml-4{margin-left: 4rem;}
+.ml-5{margin-left: 5rem;}
+
+.mt-auto{margin-top: auto;}
+
+.p-0-important{padding: 0rem !important;}
+.p-025{padding: .25rem;}
+.p-0{padding: 0rem;}
+.p-05{padding: .5rem;}
+.p-1{padding: 1rem;}
+.p-2{padding: 2rem;}
+.p-3{padding: 3rem;}
+.p-4{padding: 4rem;}
+.p-5{padding: 5rem;}
+.p-6{padding: 6rem;}
+
+.pt-0-important{padding-top: 0rem !important;}
+.pt-0{padding-top: 0rem;}
+.pt-05{padding-top: .5rem;}
+.pt-1{padding-top: 1rem;}
+.pt-2{padding-top: 2rem;}
+.pt-3{padding-top: 3rem;}
+.pt-4{padding-top: 4rem;}
+.pt-5{padding-top: 5rem;}
+.pt-6{padding-top: 6rem;}
+
+.pr-0{padding-right: 0rem;}
+.pr-02{padding-right: .2rem;}
+.pr-05{padding-right: .5rem;}
+.pr-1{padding-right: 1rem;}
+.pr-2{padding-right: 2rem;}
+.pr-2-important{padding-right: 2rem !important;}
+.pr-3{padding-right: 3rem;}
+.pr-4{padding-right: 4rem;}
+.pr-5{padding-right: 5rem;}
+
+.pb-0-important{padding-bottom: 0rem !important;}
+.pb-0{padding-bottom: 0rem;}
+.pb-05{padding-bottom: .5rem;}
+.pb-1{padding-bottom: 1rem;}
+.pb-2{padding-bottom: 2rem;}
+.pb-3{padding-bottom: 3rem;}
+.pb-4{padding-bottom: 4rem;}
+.pb-5{padding-bottom: 5rem;}
+.pb-6{padding-bottom: 6rem;}
+
+.pl-0{padding-left: 0rem;}
+.pl-02{padding-left: .2rem;}
+.pl-05{padding-left: .5rem;}
+.pl-1{padding-left: 1rem;}
+.pl-15{padding-left: 1.5rem;}
+.pl-2{padding-left: 2rem;}
+.pl-3{padding-left: 3rem;}
+.pl-4{padding-left: 4rem;}
+.pl-5{padding-left: 5rem;}
+
+.blue {
+    color: blue;
+}
+
+.black {
+    color: black;
+}
+
+.white {
+    color: white;
+}
+
+.fundo {
+    background-color: #f6f6f6;
+    width: 350px;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 3px 5px 10px #00000036;
+    display: inline-flex;
+    padding: 17px;
+}
+
+.border {
+    border-radius: 3px;
+}
+
+.border-bottom {
+    border-bottom: 1px solid black;
+}
+
+.font {
+    font-size: 17px;
+}
+
+.font2 {
+    font-size: 20px;
+}
+
+.borda {
+    border: #0000003b solid 1px;
+}
+
+.borda2 {
+    border: #000 solid 2px;
+    border-radius: 5px;
+    padding: 1px;
+}
+
+.sublinha:hover {
+    text-decoration: underline;
+}
+
+/* end style global */
+
+.logo {
+    max-width: 190px;
+    max-height: 90px;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 7%;
+    left: 23%;
+    transform: translate(-50%, -50%);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.cad-noticia {
+    position: absolute;
+    top: 7%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+}
+
+.exib-noticia {
+    position: absolute;
+    top: 7%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+}
+
+.busca-noticia {
+    position: absolute;
+    top: 7%;
+    left: 72%;
+    transform: translate(-50%, -50%);
+    height: 26px;
+    width: 215px;
+    border-radius: 45px;
+    padding: 0px 34px 0px 10px;
+    box-shadow: 0 0 3px black;
+}
+
+#pesquisar {
+    display: flex;
+    position: absolute;
+    right: 110px;
+    width: 321px;
+    top: 57px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.toppo {
+    background-color: white;
+    width: 100%;
+    height: 130px;
+}
+
+.middle {
+    background-color: white;
+    width: 100%;
+    height: 2000px;
+}
+
+.end {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    border-radius: 4px;
+    height: 55px;
+}
+
+.footer {
+    justify-content: center;
+    display: flex;
+    margin-top: 0.7rem;
+    margin-left: 810px;
+    margin-right: 810px;
+}
+
+.linha-horizontal {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, transparent, rgb(4, 3, 5), transparent);
+}
+
+.container {
+    max-width: 1366px;
+    width: 100%;
+    margin: 0 auto; 
+}
+
+.hidden {
+    overflow: hidden;
+}
+
+/* .noticia-first {
+    text-align: center;
+} */
+
+/* tela cadastro noticia */
+
+.fundo-cadastro {
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    background: white;
+}
+
+.tela-cadastro {
+    width: 700px;
+    height: 500px;
+    background-color: #f6f6f6;
+    border-radius: 6px;
+    box-shadow: 6px 8px 12px #0000002b;
+    border: #dddddd61 solid 1px;
+}
+
+.noticia {
+    justify-content: flex-start;
+    display: flex;
+    top: 405px;
+}
+
+.titulo {
+    /* position: absolute; */
+    display: flex;
+    top: 360px;
+}
+
+.funcionario{
+    /* position: absolute; */
+    display: flex;
+    top: 301px;
+}
+
+.cadastrar {
+    display: flex;
+    top: 645px;
+    background-color: #f6f6f6;
+    cursor: pointer;
+}
+
+.redirecionamento {
+    display: flex;
+    top: 675px;
+}
+
+.noticiap {
+    background: white;
+    width: 442px;
+    height: 220px;
+}
+
+.pnoticia{
+    padding-bottom: 2rem;
+    max-height: 258px;
+    overflow: hidden;
+}
