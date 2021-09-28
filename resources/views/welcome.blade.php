@@ -21,13 +21,14 @@
             <div class="container"> 
                 <div class="noticia-first m-1 flex-jc flex-w">
                     @foreach ($noticias as $noticia)
-                        <article class="fundo m-1 flex-c hidden">
+                        <article class="fundo m-1 flex-c hidden" style="position: relative;">
                             <p class="font2"><b>
                                 {{$noticia->titulo}}
                             </p></b>
                             <p class="pnoticia mt-3">
                                 {{$noticia->noticia}}
                             </p>
+                            <button class="flex-jc vermais white">Ver mais</button>
                         </article>
                     @endforeach
                 </div>
