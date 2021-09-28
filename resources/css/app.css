@@ -555,3 +555,7 @@
     background: #0185ff;
     cursor: pointer;
 }
+
+.vermais:hover {
+    background-color: blue;
+}
