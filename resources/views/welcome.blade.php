@@ -2,7 +2,7 @@
 @section('body')
     <form method="post" id="formnoticias">
         @csrf
-        @method('GET')
+        @method('POST')
         <fieldset class="toppo black">
             <div class="">
                 <div class="head">

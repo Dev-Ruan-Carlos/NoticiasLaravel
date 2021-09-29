@@ -25,13 +25,14 @@ Route::prefix('registre')->group(function() {
 });
 
 Route::prefix('noticias')->group(function() {
-    Route::get('/', [LoginController::class, 'index'])->name('welcome');
+    Route::post('/', [LoginController::class, 'index'])->name('welcome');
+    Route::get('/', [LoginController::class, 'index'])->name('welcome2');
+    Route::post('buscar', [LoginController::class, 'buscar'])->name('noticia.buscar');
 });
 
 Route::prefix('cadastro')->group(function() {
     Route::get('/', [CadastroController::class, 'index'])->name('cadastro');
     Route::post('cadastro', [CadastroController::class, 'gravar'])->name('cadastro.gravar');
-    Route::get('buscar', [LoginController::class, 'buscar'])->name('cadastro.buscar');
 });
 
 Route::prefix('vernoticia')->group(function() {

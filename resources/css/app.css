@@ -574,3 +574,12 @@
     left: 44%;
     transform: translate(-50%, -50%);
 }
+
+.inputo {
+    margin-left: 58px;
+    font-size: 20px;
+    padding: 0px 5px 0px 5px;
+    width: 451px;
+    border: 1.5px solid #000;
+    border-radius: 7px;
+}
