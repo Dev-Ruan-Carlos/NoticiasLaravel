@@ -1,15 +1,13 @@
 @extends('layouts.app')
 @section('body')
-    <form method="post" id="formnoticias">
+    <form method="get" id="formnoticias">
         @csrf
         @method('GET')
-        <fieldset class="toppo black">
+        <div class="toppo black">
             <div class="">
                 <div class="head">
                     <a href="https://sgbr.com.br/"><img src="{{asset('img/logo.jpg')}}" alt="LOGO" class="logo"></a>
-                    <a href="{{route('inicio')}}" class="cad-noticia volt-login font sublinha"><b>Voltar ao Login</b></a>
-                    <a href="{{route('cadastro')}}" class="cad-noticia font sublinha"><b>Cadastrar notícias</b></a>
-                    <a href="{{route('noticias')}}" class="exib-noticia font sublinha"><b>Alterar notícias</b></a>
+                    <a href="{{route('welcome')}}" class="exib-noticia font sublinha"><b>Voltar ao inicio</b></a>
                     <input type="text" class="busca-noticia" id="buscar" name="buscar" autofocus @isset($busca)
                         value="{{$busca}}"
                     @endisset>
@@ -18,30 +16,46 @@
                     </div>
                 </div>
             </div>
-        </fieldset>
-        <div class="linha-horizontal mb-2"></div>
-        <fieldset class="middle">
+        </div>
+        <div class="linha-horizontal"></div>
+        <div class="middle">
             <div class="container"> 
                 <div class="noticia-first m-1 flex-jc flex-w">
                     @foreach ($noticias as $noticia)
                         <article class="fundo m-1 flex-c hidden" style="position: relative;">
+                            <a href="javascript:void(0)" onclick="excluirNoticia(this)" data-id="{{$noticia->controle}}">
+                                <i class="fa fa-trash lixeira" style="justify-content: flex-end; display:flex;"></i>
+                            </a>
                             <p class="font2"><b>
                                 {{$noticia->titulo}}
                             </p></b>
                             <p class="pnoticia mt-3">
                                 {{$noticia->noticia}}
                             </p>
-                            <button class="flex-jc vermais white">Ver mais</button>
+                            <a href="{{route('noticias.detalhes', $noticia->controle)}}">
+                                <button type="button" class="flex-jc vermais white">Editar</button>
+                            </a>
                         </article>
                     @endforeach
                 </div>
             </div>
-        </fieldset>
-    </form>
-    <div class="linha-horizontal mt-2"></div>
-    <footer class="end black font">
-        <div>
-            <a class="footer" href='https://github.com/Dev-Ruan-Carlos'><b>Desenvolvido por Dev-Ruan</b></a>
         </div>
-    </footer>
+    </form>
+
+    <script>
+        function excluirNoticia(el){
+            $.ajax({
+                url: "{{route('noticias.excluir')}}",
+                type: "DELETE",
+                data: {
+                    id: el.dataset.id
+                },
+                beforeSend: function(request){
+                    request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'))
+                }
+            }).done(response => {
+                window.location.reload();
+            })
+        }
+    </script>
 @endsection 

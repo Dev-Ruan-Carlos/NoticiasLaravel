@@ -377,9 +377,8 @@
 }
 
 .borda2 {
-    border: #000 solid 2px;
     border-radius: 5px;
-    padding: 1px;
+    padding: 5px;
 }
 
 .sublinha:hover {
@@ -491,7 +490,7 @@
     height: 100%;
     min-height: 100vh;
     width: 100%;
-    background: white;
+    background: #027eff;
 }
 
 .tela-cadastro {
@@ -499,7 +498,7 @@
     height: 500px;
     background-color: #f6f6f6;
     border-radius: 6px;
-    box-shadow: 6px 8px 12px #0000002b;
+    box-shadow: 6px 8px 20px 10px #dfc8c85e;
     border: #dddddd61 solid 1px;
 }
 
@@ -526,6 +525,10 @@
     top: 645px;
     background-color: #f6f6f6;
     cursor: pointer;
+}
+
+.cadastrar:hover {
+    background-color: #beeaec;
 }
 
 .redirecionamento {
@@ -558,4 +561,16 @@
 
 .vermais:hover {
     background-color: blue;
+}
+
+.lixeira {
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.volt-login {
+    position: absolute;
+    top: 7%;
+    left: 44%;
+    transform: translate(-50%, -50%);
 }

@@ -12,11 +12,20 @@ class CadastroController extends Controller
     }
 
     public function gravar(Request $request){
-        $noticias = new Noticias();
-        $noticias->funcionario = $request->post('funcionario');
-        $noticias->titulo = $request->post('titulo');
-        $noticias->noticia = $request->post('noticia'); 
-        $noticias->save();
-        return redirect()->back()->withInput()->withErrors(['cadastro' => 'Noticia cadastrada com sucesso !']);
+        if($request->get('id')){
+            $noticias = Noticias::where('controle',$request->get('id'))->first();
+            $noticias->funcionario = $request->post('funcionario');
+            $noticias->titulo = $request->post('titulo');
+            $noticias->noticia = $request->post('noticia'); 
+            $noticias->save();
+            return redirect()->back()->withInput()->with('cadastro', 'Noticia alterada com sucesso !');
+        }else {
+            $noticias = new Noticias();
+            $noticias->funcionario = $request->post('funcionario');
+            $noticias->titulo = $request->post('titulo');
+            $noticias->noticia = $request->post('noticia'); 
+            $noticias->save();
+            return redirect()->back()->withInput()->with('cadastro', 'Noticia cadastrada com sucesso !');
         }
-}
+    }
+}        

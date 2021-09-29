@@ -42,7 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // protected $table = 'tnoticia';
-    // protected $primaryKey = 'codfuncionario';
-    // protected $connection = 'criador';
+    protected $table = 'tusuario';
+    protected $primaryKey = 'id';
+    protected $connection = 'criador';
 }
