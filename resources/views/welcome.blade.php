@@ -7,9 +7,10 @@
             <div class="">
                 <div class="head">
                     <a href="https://sgbr.com.br/"><img src="{{asset('img/logo.jpg')}}" alt="LOGO" class="logo"></a>
-                    <a href="{{route('inicio')}}" class="cad-noticia volt-login font sublinha"><b>Voltar ao Login</b></a>
+                    <a href="{{route('inicio')}}" class="controle-user font sublinha"><b>Controle Usuário</b></a>
                     <a href="{{route('cadastro')}}" class="cad-noticia font sublinha"><b>Cadastrar notícias</b></a>
                     <a href="{{route('noticias')}}" class="exib-noticia font sublinha"><b>Alterar notícias</b></a>
+                    <a href="" class="volt-login font sublinha"><b>Voltar ao Login</b></a>
                     <input type="text" class="busca-noticia" id="buscar" name="buscar" autofocus @isset($busca)
                         value="{{$busca}}"
                     @endisset>

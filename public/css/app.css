@@ -404,14 +404,14 @@
 .cad-noticia {
     position: absolute;
     top: 7%;
-    left: 52%;
+    left: 44%;
     transform: translate(-50%, -50%);
 }
 
 .exib-noticia {
     position: absolute;
     top: 7%;
-    left: 60%;
+    left: 52%;
     transform: translate(-50%, -50%);
 }
 
@@ -572,7 +572,7 @@
 .volt-login {
     position: absolute;
     top: 7%;
-    left: 44%;
+    left: 59%;
     transform: translate(-50%, -50%);
 }
 
@@ -585,3 +585,9 @@
     border-radius: 7px;
 }
 
+.controle-user {
+    position: absolute;
+    top: 7%;
+    left: 36%;
+    transform: translate(-50%, -50%);
+}
