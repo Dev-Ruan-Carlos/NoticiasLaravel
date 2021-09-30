@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\CadastroUserController;
+use App\Http\Controllers\ControleUserController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NoticiasController;
@@ -44,4 +45,8 @@ Route::prefix('vernoticia')->group(function() {
     Route::get('noticias', [NoticiasController::class, 'noticias'])->name('noticias');
     Route::get('noticias/{id}', [NoticiasController::class, 'detalhes'])->name('noticias.detalhes');
     Route::delete('noticias/remover', [NoticiasController::class, 'excluir'])->name('noticias.excluir');
+});
+
+Route::prefix('controleuser')->group(function() {
+    Route::get('listagem', [ControleUserController::class, 'usuarios'])->name('controleuser.listagem');
 });

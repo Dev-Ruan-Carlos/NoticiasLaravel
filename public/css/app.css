@@ -263,6 +263,7 @@
 .mr-3{margin-right: 3rem;}
 .mr-4{margin-right: 4rem;}
 .mr-5{margin-right: 5rem;}
+.mr-10{margin-right: 10rem;}
 
 .mb-0{margin-bottom: 0rem;}
 .mb-025{margin-bottom: .25rem;}
@@ -382,8 +383,16 @@
     padding: 5px;
 }
 
+.borda5 {
+    border-bottom: #0000003b solid 1px;
+}
+
 .sublinha:hover {
     text-decoration: underline;
+}
+
+.cursor {
+    cursor: pointer;
 }
 
 /* end style global */
@@ -507,7 +516,7 @@
     background-color: #f6f6f6;
     border-radius: 6px;
     box-shadow: 6px 8px 20px 10px #dfc8c85e;
-    border: #dddddd61 solid 1px;
+    border: #000 solid 2px;
 }
 
 .noticia {
@@ -592,9 +601,122 @@
     border-radius: 7px;
 }
 
+/* controle de usuário */
+
 .controle-user {
     position: absolute;
     top: 7%;
     left: 36%;
     transform: translate(-50%, -50%);
 }
+
+.superior {
+    background-color: #0185ff;
+    width: 100%;
+    height: 65px;
+    border-radius: 3px;
+    display: flex;
+}
+
+.meio {
+    background-color: #4b1e7b12;
+    width: 16%;
+    height: 4000px;
+    float: left;
+    border-left: solid 1px black;
+    border-right: solid 1px black;
+}
+
+.busca-user {
+    position: absolute;
+    top: 13%;
+    left: 72%;
+    transform: translate(-50%, -50%);
+    height: 26px;
+    width: 215px;
+    border-radius: 45px;
+    padding: 0px 34px 0px 10px;
+    box-shadow: 0 0 3px black;
+}
+
+#pesquisar-user {
+    display: flex;
+    position: absolute;
+    right: 110px;
+    width: 324px;
+    top: -60px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.button-list {
+    margin-top: 1px;
+    background-color: #4b1e7b12;
+    width: 100%;
+    height: 48px;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    border-radius: 10px;
+}
+
+.button-list:hover {
+    background-color: #0185ff
+}
+
+
+.borda4 {
+    border: #000 solid 1px
+}
+
+#hamburguer {
+    margin-left: 47px;
+    font-size: 25px;
+    margin-top: 18px;
+}
+
+.lista-user {
+    padding: 143px 120px 589px 435px;
+}
+
+.casa {
+    display: flex;
+    position: absolute;
+    top: 179px;
+    font-size: 16px;
+    cursor: pointer;
+    left: 85px;
+}
+
+.casa2 {
+    display: flex;
+    position: absolute;
+    top: 228px;
+    font-size: 16px;
+    cursor: pointer;
+    left: 66px;
+}
+
+.icon-info {
+    display: flex;
+    position: absolute;
+    top: 131px;
+    font-size: 16px;
+    cursor: pointer;
+    left: 97px;
+}
+
+.icon-user {
+    display: flex;
+    position: absolute;
+    top: 81px;
+    font-size: 16px;
+    cursor: pointer;
+    left: 113px;
+}
+
+.linha-horizontall {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, rgb(4, 3, 5), transparent);
+}
+
