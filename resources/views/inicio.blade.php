@@ -2,11 +2,11 @@
 @section('body')
     <div id="login" class="fundoazul">
         <div class="box-login">
-            <form action="{{route('welcome')}}" method="post">
+            <form action="{{route('entrada.entrar')}}" method="post">
                 @csrf
                 @method('POST')
                 <fieldset class="clearfix">
-                    @error('login')
+                    @error('inicio')
                         <span class="error">{{$message}}</span>
                     @enderror    
                         <p>

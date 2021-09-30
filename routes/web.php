@@ -17,7 +17,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [InicioController::class, 'index'])->name('inicio');
+
+    Route::get('/', [InicioController::class, 'index'])->name('inicio');
+
+Route::prefix('entrada')->group(function() {
+    Route::post('entrar', [InicioController::class, 'entrar'])->name('entrada.entrar');
+});
 
 Route::prefix('registre')->group(function() {
     Route::get('/', [CadastroUserController::class, 'index'])->name('registre');

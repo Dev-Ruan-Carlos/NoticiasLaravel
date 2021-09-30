@@ -7,7 +7,7 @@
             <div class="">
                 <div class="head">
                     <a href="https://sgbr.com.br/"><img src="{{asset('img/logo.jpg')}}" alt="LOGO" class="logo"></a>
-                    <a href="{{route('welcome2')}}" class="exib-noticia font sublinha"><b>Voltar ao inicio</b></a>
+                    <a href="{{route('welcome2')}}" class="exib-noticias font sublinha"><b>Voltar</b></a>
                     <input type="text" class="busca-noticia" id="buscar" name="buscar" autofocus @isset($busca)
                         value="{{$busca}}"
                     @endisset>

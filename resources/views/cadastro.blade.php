@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="flex-jc mb-1">                   
-                <a href="{{route('welcome2')}}" class="cadastrar borda2">Ir para o início </a>
+                <a href="{{route('welcome2')}}" class="cadastrar borda2">Voltar</a>
                 <button type="submit" class="cadastrar borda2" style="margin-left: 50px">@isset($noticia)
                     Gravar 
                     @else
