@@ -7,9 +7,13 @@
             <div class="">
                 <div class="head">
                     <a href="https://sgbr.com.br/"><img src="{{asset('img/logo.jpg')}}" alt="LOGO" class="logo"></a>
-                    <a href="{{route('controleuser.listagem')}}" class="controle-user font sublinha"><b>Controle Usuário</b></a>
-                    <a href="{{route('cadastro')}}" class="cad-noticia font sublinha"><b>Cadastrar notícias</b></a>
-                    <a href="{{route('noticias')}}" class="exib-noticia font sublinha"><b>Alterar notícias</b></a>
+                    @if(isset($user) && ($user->nivel_acesso == 1 || $user->nivel_acesso == 2))
+                        @if($user->nivel_acesso == 1)
+                            <a href="{{route('controleuser.listagem')}}" class="controle-user font sublinha"><b>Controle Usuário</b></a>
+                        @endif
+                        <a href="{{route('cadastro')}}" class="cad-noticia font sublinha"><b>Cadastrar notícias</b></a>
+                        <a href="{{route('noticias')}}" class="exib-noticia font sublinha"><b>Alterar notícias</b></a>
+                    @endif
                     <a href="{{route('inicio')}}" class="volt-login font sublinha"><b>Voltar ao Login</b></a>
                     <input type="text" class="busca-noticia" id="buscar" name="buscar" autofocus @isset($busca)
                         value="{{$busca}}"
@@ -30,7 +34,7 @@
                             <p class="pnoticia mt-3">
                                 {{$noticia->noticia}}
                             </p>
-                            <a href="{{route('noticia.vermais')}}">
+                            <a href="{{route('noticia.vermais', $noticia->controle)}}">
                                 <button type="button" class="flex-jc vermais white">Ver mais</button>
                             </a>
                         </article>
@@ -41,8 +45,9 @@
     </form>
     <div class="linha-horizontal mt-2"></div>
     <footer class="end black font">
-        <div>
-            <a class="footer" href='https://github.com/Dev-Ruan-Carlos'><b>Desenvolvido por Dev-Ruan</b></a>
+        <div class="blue">
+            <a class="footer blue" href='https://github.com/Dev-Ruan-Carlos'><b>Desenvolvido por Dev-Ruan</b></a>
+            <i class="far fa-copyright copyright blue"></i>
         </div>
     </footer>
 @endsection 

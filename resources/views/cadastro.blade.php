@@ -3,7 +3,7 @@
 <form action="{{route('cadastro.gravar')}}" class="" method="post">
     @csrf 
     @method('POST')
-    <div class="fundo-cadastro flex-jc flex-ac">
+    <div class="fundoazul flex-jc flex-ac">
         <div class="tela-cadastro border flex-jb flex-c">
             <input type="text" name="id" @isset($noticia)
                 value="{{$noticia->controle}}"
@@ -28,9 +28,9 @@
                     </textarea> 
                 </div>
             </div>
-            <div class="flex-jc mb-1">                   
-                <a href="{{route('welcome2')}}" class="cadastrar borda2">Voltar</a>
-                <button type="submit" class="cadastrar borda2" style="margin-left: 50px">@isset($noticia)
+            <div class="flex-b mb-1 flex-jc">                   
+                <a href="{{route('welcome2')}}" class="cadastrar borda2 white font flex-jc">Voltar</a>
+                <button type="submit" class="cadastrar borda2 ml-4 white font flex-jc">@isset($noticia)
                     Gravar 
                     @else
                     Cadastrar

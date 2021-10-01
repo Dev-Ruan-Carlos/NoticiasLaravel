@@ -1,3 +1,12 @@
+.fundoazul {
+    background: #0264d6;
+    background: radial-gradient(ellipse at center, #0264d6 1%,#1c2b5a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0264d6', endColorstr='#1c2b5a',GradientType=1 );
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+}
+
 /* tooltip */
 
 /* 
@@ -515,8 +524,7 @@
     height: 500px;
     background-color: #f6f6f6;
     border-radius: 6px;
-    box-shadow: 6px 8px 20px 10px #dfc8c85e;
-    border: #000 solid 2px;
+    box-shadow: -1px 0px 20px 3px #dfc8c85e;
 }
 
 .noticia {
@@ -540,12 +548,18 @@
 .cadastrar {
     display: flex;
     top: 645px;
-    background-color: #f6f6f6;
+    background-color: black;
     cursor: pointer;
+    width: 61px;
+    width: 12%;
+    white-space: normal;
 }
 
 .cadastrar:hover {
-    background-color: #beeaec;
+    background-color: white;
+    color: #000;
+    transition: 300ms;
+    border: black solid 2px;
 }
 
 .redirecionamento {
@@ -621,7 +635,7 @@
 .meio {
     background-color: #4b1e7b12;
     width: 16%;
-    height: 4000px;
+    height: 3000px;
     float: left;
     border-left: solid 1px black;
     border-right: solid 1px black;
@@ -663,6 +677,16 @@
     background-color: #0185ff
 }
 
+.button-list2 {
+    margin-top: 1px;
+    background-color: #4b1e7b12;
+    width: 100%;
+    height: 48px;
+    /* border-top: solid 2px black; */
+    border: solid 2px black;
+    border-radius: 3px;
+}
+
 
 .borda4 {
     border: #000 solid 1px
@@ -675,10 +699,10 @@
 }
 
 .lista-user {
-    padding: 56px 120px 389px 435px;
+    padding: 56px 120px 1528px 435px;
     margin-left: 306px;
     margin-right: 0px;
-    background: white;
+    background: #f2eff6;
     padding-right: 200px;
     padding-left: 200px;
 }
@@ -725,3 +749,61 @@
     background-image: linear-gradient(to right, transparent, rgb(4, 3, 5), transparent);
 }
 
+.meiodireita {
+    background: #f2eff6;
+}
+
+.direita-aba {
+    position: absolute;
+    background: white;
+    left: 1719px;
+    width: 201px;
+    height: 882px;
+    border-radius: 3px;
+}
+
+.esquerda-aba {
+    position: absolute;
+    background: white;
+    width: 200px;
+    height: 882px;
+    border-radius: 3px;
+}
+
+.meio-aba {
+    position: absolute;
+    background: #f2eff6;
+    width: 1519px;
+    left: 200px;
+    height: 1500px;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 18px 0px #0b0b0c1c;
+    margin-top: 20px;
+}
+
+.copyright {
+    position: absolute;
+    left: 828px;
+    bottom: 26px;
+}
+
+.voltar {
+    font-size: 25px;
+    background: #0185ff;
+    border-radius: 5px;
+    width: 290px;
+    margin-left: 1207px;
+    padding-top: 0px;
+    position: absolute;
+    top: 1435px;
+}
+
+.voltar:hover {
+    background: blue;
+}
+
+.mao {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 62px;
+}

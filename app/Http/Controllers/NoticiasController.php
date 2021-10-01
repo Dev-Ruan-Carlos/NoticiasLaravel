@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class NoticiasController extends Controller
 {
     public function noticias(Request $request){
-        else($request->get('buscar')){
+        if($request->get('buscar')){
             $busca = $request->get('buscar');
             $noticias = Noticias::where('titulo', 'LIKE', '%'.$busca.'%')
                                 ->orWhere('noticia', 'LIKE', '%'.$busca.'%')

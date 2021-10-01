@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('body')
-    <form method="get" id="formusuarios" name="formusuarios" class="white" action="{{route('controleuser.listagem')}}">
+    <form method="post" id="formusuarios" class="white">
         @csrf
-        @method('GET')
+        @method('POST')
         <fieldset class="superior pai">         
                 <span class="fa fa-bars hamburguer" id="hamburguer"> Gerenciador de usuários</span>
         </fieldset>
@@ -35,35 +35,40 @@
             </div>
         </fieldset>
         <fieldset class="meiodireita borda5">
-            <div>
                 <h2 class="pl-2 pt-2 black">Usuários</h2>
                 <h4 class="pl-2 mb-2 black">Gerencie os usuários que terão acesso ao cadastro/edição de noticias</h4>
-                <input type="text" class="busca-user" id="buscar2" name="buscar2" autofocus="" autofocus @isset($busca)
+                <input type="text" class="busca-user" id="buscar2" name="buscar2" autofocus @isset($busca)
                     value="{{$busca}}"
                 @endisset>
                 <i class="fas fa-search black" id="pesquisar-user" onclick="document.getElementById('formusuarios').submit()"></i>
-            </div>
-        </fieldset>
+            </fieldset>
         <div class="lista-user">
             <ul class="black font flex-jc" style="display: flex; flex-direction: column;">
                 @foreach ($usuarios as $usuario)
                 <li class="flex mt-05 border-bottom">
                     <div style="flex: 1;">
-                        <p>{{'Usuário: ' . $usuario->nome}}</p>
+                        <b><p>{{'Controle: ' . $usuario->id}}</p></b>
                     </div>
                     <div style="flex: 1;">
-                        <p>{{'Nivel acesso: ' . $usuario->nivel_acesso . ' = ' . $usuario->nome_acesso}}</p>
+                        <b><p>{{'Usuário: ' . $usuario->nome}}</p></b>
                     </div>
                     <div style="flex: 1;">
-                        <p>{{'Status: ' . $usuario->ativo}}</p>
+                        <b><p>{{'Nivel acesso: ' . $usuario->nivel_acesso . ' = ' . $usuario->nome_acesso}}</p></b>
+                    </div>
+                    <div style="flex: 1;">
+                        @if($usuario->ativo == 1)
+                            <b><p>{{'Status = Ativo'}}</p></b>
+                        @else
+                            <b><p>{{'Status = Inativo'}}</p></b>
+                        @endif
                     </div>
                     <div>
-                        <a href="{{route('controleuser.edicao')}}" class="black">
-                            <i class="fas fa-pen cursor"></i>
+                        <a href="{{route('controleuser.listagem.edicao', $usuario->id)}}" class="black">
+                            <i class="fas fa-pen cursor" style="margin-right: 15px;"></i>
                         </a>
-                        <a href="" class="black">
+                        {{-- <a href="" class="black">
                             <i class="fas fa-trash ml-1 cursor"></i>
-                        </a>
+                        </a> --}}
                     </div>
                 </li>
                 @endforeach

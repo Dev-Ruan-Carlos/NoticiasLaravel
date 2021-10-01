@@ -14,6 +14,10 @@ class InicioController extends Controller
             'password' => $request->post('senha'),
         ];
         if(Auth::attempt($credentials)){
+            if(Auth::user()->ativo == 0){
+                Auth::logout();
+                return redirect()->back()->withInput()->withErrors(['inicio' => 'Você não tem permissão de acesso !']);
+            }
             return redirect()->route('welcome');
         }else{
             return redirect()->back()->withInput()->withErrors(['inicio' => 'Login/Senha incorreto, peço que tente novamente !']);

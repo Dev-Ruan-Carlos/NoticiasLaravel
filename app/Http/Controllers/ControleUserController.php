@@ -23,9 +23,7 @@ class ControleUserController extends Controller
     }
 
     public function edicao($id){
-            dd($id);
-            $usuarios = User::where('controle', $id)->first();
-            dd($usuarios);
+            $usuarios = User::where('id', $id)->first();
             return view('edicaouser', compact('usuarios'));
     }
 }

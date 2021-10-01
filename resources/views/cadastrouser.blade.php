@@ -20,7 +20,7 @@
                     <label for="password">Sua senha:</label>
                     <input id="senhaCadastro" name="password" required="required" type="password" placeholder="ex: 1234" maxlength="42"/>
                 </div> 
-                <div class="blue">                   
+                <div class="blue mt-2">                   
                     Já tem conta?
                     <a href="{{route('inicio')}}"> Ir para o início </a>
                     <button type="submit" class="button" style="margin-left: 50px">Cadastrar</button>

@@ -35,7 +35,7 @@ Route::prefix('noticias')->group(function() {
     Route::post('/', [LoginController::class, 'index'])->name('welcome');
     Route::get('/', [LoginController::class, 'index'])->name('welcome2');
     Route::post('buscar', [LoginController::class, 'buscar'])->name('noticia.buscar');
-    Route::get('vermais', [LoginController::class, 'vermais'])->name('noticia.vermais');
+    Route::get('vermais/{id}', [LoginController::class, 'vermais'])->name('noticia.vermais');
 });
 
 Route::prefix('cadastro')->group(function() {
@@ -51,5 +51,6 @@ Route::prefix('vernoticia')->group(function() {
 
 Route::prefix('controleuser')->group(function() {
     Route::get('listagem', [ControleUserController::class, 'usuarios'])->name('controleuser.listagem');
+    Route::post('listagem', [ControleUserController::class, 'usuarios'])->name('controleuser.listagem2');
     Route::get('edicao/{id}', [ControleUserController::class, 'edicao'])->name('controleuser.listagem.edicao');
 });
