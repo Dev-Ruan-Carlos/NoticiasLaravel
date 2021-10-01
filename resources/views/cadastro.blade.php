@@ -3,11 +3,19 @@
 <form action="{{route('cadastro.gravar')}}" class="" method="post">
     @csrf 
     @method('POST')
+    @if(session()->has('cadastro'))
+        <div class="alert alert-success">
+            {{ session()->get('cadastro') }}
+        </div>
+    @endif
     <div class="fundoazul flex-jc flex-ac">
         <div class="tela-cadastro border flex-jb flex-c">
             <input type="text" name="id" @isset($noticia)
                 value="{{$noticia->controle}}"
             @endisset hidden>
+            @error('gravar')
+                <span class="error">{{$message}}</span>
+            @enderror  
             <div class="flex-c">
                 <h2 class="flex-jc mt-1 mb-2 sublinha">Cadastro de notícias</h2>
                 <div class="funcionario m-1">
@@ -39,9 +47,4 @@
         </div>
     </div>
 </form>
-    @if(session()->has('cadastro'))
-        <div class="alert alert-success">
-            {{ session()->get('cadastro') }}
-        </div>
-    @endif
 @endsection 

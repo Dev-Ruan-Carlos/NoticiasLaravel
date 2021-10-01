@@ -806,3 +806,15 @@
     margin-top: 11px;
     margin-left: 62px;
 }
+
+.alert {
+    position: absolute;
+    color: white;
+    width: 280px;
+    right: 788px;
+    background: red;
+    top: 10px;
+    height: 31px;
+    border-radius: 6px;
+    padding: 1rem;
+}

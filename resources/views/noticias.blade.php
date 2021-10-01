@@ -39,6 +39,11 @@
             </div>
         </div>
     </form>
+    @if(session()->has('cadastro'))
+        <div class="alert alert-success">
+            {{ session()->get('cadastro') }}
+        </div>
+    @endif
 
     <script>
         function excluirNoticia(el){
