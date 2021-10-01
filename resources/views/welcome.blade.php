@@ -14,9 +14,7 @@
                     <input type="text" class="busca-noticia" id="buscar" name="buscar" autofocus @isset($busca)
                         value="{{$busca}}"
                     @endisset>
-                    <div class="input-button" data-tooltip="Consultar dados do CNPJ !" data-tooltip-location="top">
-                        <i class="fas fa-search" id="pesquisar" onclick="document.getElementById('formnoticias').submit()"></i>
-                    </div>
+                    <i class="fas fa-search" id="pesquisar" onclick="document.getElementById('formnoticias').submit()"></i>
                 </div>
             </div>
         </fieldset>
@@ -32,7 +30,9 @@
                             <p class="pnoticia mt-3">
                                 {{$noticia->noticia}}
                             </p>
-                            <button class="flex-jc vermais white">Ver mais</button>
+                            <a href="{{route('noticia.vermais')}}">
+                                <button type="button" class="flex-jc vermais white">Ver mais</button>
+                            </a>
                         </article>
                     @endforeach
                 </div>

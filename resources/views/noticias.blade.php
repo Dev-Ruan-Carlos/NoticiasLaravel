@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('body')
-    <form method="post" id="formnoticias">
+    <form method="get" id="formnoticias">
         @csrf
-        @method('POST')
+        @method('GET')
         <div class="toppo black">
             <div class="">
                 <div class="head">
@@ -11,9 +11,7 @@
                     <input type="text" class="busca-noticia" id="buscar" name="buscar" autofocus @isset($busca)
                         value="{{$busca}}"
                     @endisset>
-                    <div class="input-button" data-tooltip="Consultar dados do CNPJ !" data-tooltip-location="top">
                         <i class="fas fa-search" id="pesquisar" onclick="document.getElementById('formnoticias').submit()"></i>
-                    </div>
                 </div>
             </div>
         </div>

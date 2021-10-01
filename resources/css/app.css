@@ -642,8 +642,8 @@
     display: flex;
     position: absolute;
     right: 110px;
-    width: 324px;
-    top: -60px;
+    width: 321px;
+    top: 114px;
     font-size: 17px;
     cursor: pointer;
 }
@@ -674,7 +674,12 @@
 }
 
 .lista-user {
-    padding: 143px 120px 589px 435px;
+    padding: 56px 120px 389px 435px;
+    margin-left: 306px;
+    margin-right: 0px;
+    background: white;
+    padding-right: 200px;
+    padding-left: 200px;
 }
 
 .casa {
@@ -683,7 +688,7 @@
     top: 179px;
     font-size: 16px;
     cursor: pointer;
-    left: 85px;
+    left: 84px;
 }
 
 .casa2 {
@@ -692,7 +697,7 @@
     top: 228px;
     font-size: 16px;
     cursor: pointer;
-    left: 66px;
+    left: 65px;
 }
 
 .icon-info {
@@ -701,7 +706,7 @@
     top: 131px;
     font-size: 16px;
     cursor: pointer;
-    left: 97px;
+    left: 96px;
 }
 
 .icon-user {
@@ -710,7 +715,7 @@
     top: 81px;
     font-size: 16px;
     cursor: pointer;
-    left: 113px;
+    left: 112px;
 }
 
 .linha-horizontall {

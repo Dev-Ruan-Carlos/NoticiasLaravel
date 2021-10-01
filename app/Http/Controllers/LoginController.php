@@ -19,4 +19,8 @@ class LoginController extends Controller
         $noticias = Noticias::get(); 
         return view('welcome', compact('noticias'));
     }
+
+    public function vermais(){
+        return view('vermais');
+    }
 }
